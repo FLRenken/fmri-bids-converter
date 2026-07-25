@@ -1,0 +1,14 @@
+# Sensitive/raw data - never commit
+data/
+*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# OS/editor cruft
+.DS_Store
+.vscode/
