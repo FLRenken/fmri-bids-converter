@@ -16,6 +16,8 @@ performance gap between switch and repeat trials (_switch cost_) is a
 widely used index of executive control (Monsell, 2003; Vandierendonck et al.,
 2010).
 
+![design-schemata](figures/task_design_schematic.svg)
+
 Comparing conditions on reaction time (RT) alone is confounded by
 speed–accuracy trade-offs: a participant can look "faster" simply by being
 less careful. This pipeline addresses that by computing **LISAS** (Linear
