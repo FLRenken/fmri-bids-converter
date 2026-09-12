@@ -1,7 +1,7 @@
-# FLEX Task-Switching Pipeline
+# Data Preparation for Task-Switching Paradigm
 
-An R pipeline that converts raw JSON logs from a computerized task-switching
-paradigm ("FLEX") into clean, BIDS-style behavioral TSV files, and computes a
+An R script that converts raw JSON logs from a computerized task-switching
+paradigm into clean, BIDS-style behavioral TSV files, and computes a
 combined speed–accuracy score (LISAS) per trial condition.
 
 ## Why this exists
@@ -12,7 +12,7 @@ change. Participants alternate between blocks where they perform a single
 task repeatedly ("single" blocks) and blocks where two tasks are intermixed
 ("mixed" blocks). Within mixed blocks, a trial is a **repeat** if it uses the
 same task as the previous trial, or a **switch** if it doesn't. The
-performance gap between switch and repeat trials — the _switch cost_ — is a
+performance gap between switch and repeat trials (_switch cost_) is a
 widely used index of executive control (Monsell, 2003; Vandierendonck et al.,
 2010).
 
@@ -29,31 +29,6 @@ computed once across all of a participant's trials for a task, and `RT_j` /
 `PE_j` are the mean correct RT and mean error rate within condition `j`
 (single / repeat / switch). This yields one comparable score per condition
 per subject, per task.
-
-### Why BIDS?
-
-The output of this pipeline is organized according to the [Brain Imaging
-Data Structure (BIDS)](https://bids.neuroimaging.io/) — a community
-specification for arranging neuroimaging and behavioral data into a
-predictable, machine-readable folder and filename structure
-(`sub-<id>/ses-<label>/<datatype>/`, with descriptive `key-value` filename
-components). It was originally developed for MRI data but has since been
-extended to other modalities, including purely behavioral data via the
-[BIDS Extension Proposal for behavioral experiments
-(BEP004)](https://bids-specification.readthedocs.io/en/stable/).
-
-Adopting BIDS here — even without any neuroimaging data — matters for a few
-reasons: it makes the output self-documenting (anyone familiar with the
-standard can navigate it without reading this README), it plugs directly
-into existing BIDS-aware tooling (validators, loaders like `pybids`,
-statistical pipelines), and it keeps this project consistent with how data
-is organized in most cognitive neuroscience and psychology labs, which
-makes downstream sharing, reuse, or integration with neuroimaging sessions
-straightforward. See the [BIDS specification](https://bids-specification.readthedocs.io/en/stable/) and
-[bids.neuroimaging.io](https://bids.neuroimaging.io/) for the full standard,
-and Gorgolewski et al. (2016), _The brain imaging data structure, a format
-for organizing and describing outputs of neuroimaging experiments_,
-_Scientific Data_, for the original specification paper.
 
 ## What the script does
 
